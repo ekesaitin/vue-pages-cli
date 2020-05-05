@@ -3,15 +3,13 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-let routes = [
-  { path: '/', name: 'home', component: _ => import('./views/index/index'), meta: { title: 'index' } },
-  { path: '/p2', name: 'p2', component: _ => import('./views/p2/p2'), meta: { title: 'p2' } }
-]
-.map(route => ({...route, path: `/bar.html${route.path}`}))
-
 export default new Router({
+  base: 'bar.html',
   mode: 'history',
-  routes,
+  routes: [
+    { path: '/', name: 'home', component: _ => import('./views/index/index'), meta: { title: 'index' } },
+    { path: '/p2', name: 'p2', component: _ => import('./views/p2/p2'), meta: { title: 'p2' } }
+  ],
   scrollBehavior (to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition

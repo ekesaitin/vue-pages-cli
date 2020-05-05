@@ -1,7 +1,7 @@
 <template>
   <div class="index">
     bar
-    <router-link to="/bar.html/p2">p2</router-link>
+    <router-link to="/p2">p2</router-link>
   </div>
 </template>
 
